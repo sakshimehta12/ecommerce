@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Céleste</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Bootstrap Icons -->
+     <link
+     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css"
+     rel="stylesheet"
+   />
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      
+      /* Styling for Logo */
+      .logo-img {
+        height: 80px;
+        width: auto;
+        object-fit: contain;
+        border-radius: 15px;
+      }
+
+      @media (max-width: 768px) {
+        .logo-img {
+          height: 50px;
+        }
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        padding: 1rem;
+      }
+
+      .nav-link:hover {
+        color: #6c63ff;
+      }
+
+      .navbar-toggler {
+        border: none;
+      }
+
+      .navbar-light .navbar-toggler-icon {
+        color: #6c63ff;
+      }
+
+      .btn-outline-success,
+      .btn-outline-primary {
+        border-radius: 50px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+      }
+
+      .scroll-to-top button {
+        background-color: #6c63ff;
+        border: none;
+        border-radius: 50%;
+        padding: 0.7rem;
+        color: #fff;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+      }
+
+      .scroll-to-top button:hover {
+        background-color: #3a3a98;
+      }
+
+      /* Checkout Form Styling */
+      form label {
+        font-weight: bold;
+      }
+
+      form .form-check-label {
+        font-size: 1.1rem;
+      }
+
+      /* Order Summary Styling */
+      .order-summary {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+      }
+
+      .order-summary h4 {
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .list-group-item {
+        font-size: 1.1rem;
+      }
+
+      .nav-link {
+        font-size: 1.5rem; 
+        font-weight: 500; 
+      }
+
+      @media (max-width: 768px) {
+        .nav-link {
+          font-size: 1.1rem; 
+        }
+      }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/EeLogo.png" alt="Céleste Logo" class="logo-img">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="category.html">Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+        <form action="search.html" class="d-flex">
+          <button class="btn btn-outline-success me-2" type="submit">Search</button>
+          <a href="cart.html" class="btn btn-outline-primary position-relative">
+            <i class="bi bi-cart"></i> Cart
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              2
+            </span>
+          </a>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Checkout Section -->
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Checkout</h1>
+        
+        <div class="row">
+            <!-- Billing and Shipping Information -->
+            <div class="col-lg-8">
+                <h3>Billing & Shipping Information</h3>
+                <form id="checkoutForm" action="order_confirmation.html" method="POST">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="postalCode" class="form-label">Postal Code</label>
+                            <input type="text" class="form-control" id="postalCode" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="country" class="form-label">Country</label>
+                            <select class="form-select" id="country" required>
+                                <option selected disabled value="">Choose...</option>
+                                <option>India</option>
+                                <option>United States</option>
+                                <option>Canada</option>
+                                <option>United Kingdom</option>
+                                <!-- Add more countries -->
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                    </div>
+                    
+                    <h4 class="mt-4">Shipping Method</h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="shippingMethod" id="shippingStandard" value="standard" checked onchange="updateTotal()">
+                        <label class="form-check-label" for="shippingStandard">
+                            Standard Shipping (Free)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="shippingMethod" id="shippingExpress" value="express" onchange="updateTotal()">
+                        <label class="form-check-label" for="shippingExpress">
+                            Express Shipping ($15.00)
+                        </label>
+                    </div>
+
+                    <h4 class="mt-4">Payment Information</h4>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="cardName" class="form-label">Cardholder Name</label>
+                            <input type="text" class="form-control" id="cardName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cardNumber" class="form-label">Card Number</label>
+                            <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="expirationDate" class="form-label">Expiration Date</label>
+                            <input type="month" class="form-control" id="expirationDate" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cvv" required>
+                        </div>
+                    </div>
+
+                    <h4 class="mt-4">Order Summary</h4>
+                    <div class="order-summary">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Item Total <span id="itemTotal">$50.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Shipping <span id="shippingCost">$0.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Total</strong> <span id="totalAmount">$50.00</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-4">Place Order</button>
+                </form>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="col-lg-4">
+                <h3>Order Summary</h3>
+                <div class="order-summary">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Item Total <span id="itemTotal">$50.00</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Shipping <span id="shippingCost">$0.00</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Total</strong> <span id="totalAmount">$50.00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      function updateTotal() {
+          // Get the item total
+          const itemTotal = 50.00; // Hardcoded for demonstration
+          document.getElementById('itemTotal').textContent = `$${itemTotal.toFixed(2)}`;
+          
+          // Calculate shipping cost based on the selected method
+          const shippingStandard = document.getElementById('shippingStandard');
+          const shippingExpress = document.getElementById('shippingExpress');
+          let shippingCost = 0;
+
+          if (shippingExpress.checked) {
+              shippingCost = 15.00;
+          }
+
+          document.getElementById('shippingCost').textContent = `$${shippingCost.toFixed(2)}`;
+
+          // Calculate total
+          const totalAmount = itemTotal + shippingCost;
+          document.getElementById('totalAmount').textContent = `$${totalAmount.toFixed(2)}`;
+      }
+
+      // Form validation
+      document.getElementById('checkoutForm').onsubmit = function (event) {
+          const requiredFields = ['firstName', 'lastName', 'email', 'address', 'city', 'postalCode', 'country', 'phone', 'cardName', 'cardNumber', 'expirationDate', 'cvv'];
+          let isValid = true;
+
+          requiredFields.forEach(function (fieldId) {
+              const field = document.getElementById(fieldId);
+              if (!field.value) {
+                  field.classList.add('is-invalid');
+                  isValid = false;
+              } else {
+                  field.classList.remove('is-invalid');
+              }
+          });
+
+          if (!isValid) {
+              event.preventDefault(); // Prevent form submission if invalid
+              alert('Please fill in all required fields.');
+          }
+      };
+    </script>
+</body>
+</html>
