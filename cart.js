@@ -5,14 +5,14 @@ let cart = [
     name: "Product 1",
     price: 95,
     quantity: 1,
-    image: "assets/images/product1.jpg",
+    image: "assets/product1.jpg",
   },
   {
     id: 2,
     name: "Product 2",
     price: 120,
     quantity: 2,
-    image: "assets/images/product2.jpg",
+    image: "assets/product2.jpg",
   },
 ];
 
